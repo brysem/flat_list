@@ -3,6 +3,7 @@ import 'package:flat_list_example/screens/flat_list_ex2.dart';
 import 'package:flat_list_example/screens/flat_list_ex3.dart';
 import 'package:flat_list_example/screens/flat_list_ex4.dart';
 import 'package:flat_list_example/screens/flat_list_ex5.dart';
+import 'package:flat_list_example/screens/flat_list_ex6.dart';
 import 'package:flat_list_example/screens/home.dart';
 import 'package:flutter/foundation.dart';
 
@@ -13,6 +14,7 @@ enum AppRoute {
   flatListEx3,
   flatListEx4,
   flatListEx5,
+  flatListEx6,
 }
 
 extension RouteName on AppRoute {
@@ -25,9 +27,7 @@ extension RouteName on AppRoute {
     if (isRoot) return '';
 
     RegExp exp = RegExp(r'(?<=[a-z])[A-Z]');
-    String result = name
-        .replaceAllMapped(exp, (Match m) => ('-${m.group(0)}'))
-        .toLowerCase();
+    String result = name.replaceAllMapped(exp, (Match m) => ('-${m.group(0)}')).toLowerCase();
     return result;
   }
 
@@ -36,9 +36,7 @@ extension RouteName on AppRoute {
     if (isRoot) return '/';
 
     RegExp exp = RegExp(r'(?<=[a-z])[A-Z]');
-    String result = name
-        .replaceAllMapped(exp, (Match m) => ('-${m.group(0)}'))
-        .toLowerCase();
+    String result = name.replaceAllMapped(exp, (Match m) => ('-${m.group(0)}')).toLowerCase();
     return '/$result';
   }
 }
@@ -50,4 +48,5 @@ final routes = {
   AppRoute.flatListEx3.fullPath: (context) => const FlatListEx3(),
   AppRoute.flatListEx4.fullPath: (context) => const FlatListEx4(),
   AppRoute.flatListEx5.fullPath: (context) => const FlatListEx5(),
+  AppRoute.flatListEx6.fullPath: (context) => const FlatListEx6(),
 };
